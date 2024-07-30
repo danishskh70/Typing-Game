@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
+        integrity="sha256-+N4/V/SbAFiW1MPBCXnfnP9QSN3+Keu+NlB+0ev/YKQ="
+        crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #f06, #4a90e2);
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .intro, .rules {
+            max-width: 650px;
+            margin: 15px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .intro h2, .rules h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .intro p, .rules ul {
+            font-size: 1.2em;
+        }
+
+        .rules ul {
+            text-align: left;
+        }
+
+        .rules li {
+            margin-bottom: 10px;
+        }
+
+        .start-game {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .start-btn {
+            padding: 10px 20px;
+            margin-bottom: 20px;
+            font-size: 1.2em;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .start-btn:hover {
+            background-color: #555;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: relative;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+    <title>Typing Tutor</title>
+</head>
+<body>
+    <header>
+        <h1>Typing Tutor</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="game.html">Play Game</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="intro">
+            <h2>Welcome to Typing Tutor</h2>
+            <p>Enhance your typing skills with our fun and interactive typing game! Whether you are a beginner or a typing master, our game is designed to help you improve your speed and accuracy.</p>
+        </section>
+
+        <section class="rules">
+            <h2>Rules of the Game</h2>
+            <ul>
+              <li>Type the word quickly.</li>
+              <li>Timer starts when you type.</li>
+              <li>Limited time per word.</li>
+              <li>Correct words add points and time.</li>
+              <li>Game ends when time runs out.</li>
+          </ul>
+          
+        </section>
+
+        <section class="start-game">
+            <button onclick="location.href='game.html'" class="start-btn">Start Game</button>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Typing Tutor</p>
+    </footer>
+</body>
+</html>

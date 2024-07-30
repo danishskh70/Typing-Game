@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
+        integrity="sha256-+N4/V/SbAFiW1MPBCXnfnP9QSN3+Keu+NlB+0ev/YKQ="
+        crossorigin="anonymous"
+    />
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #f06, #4a90e2);
+            color: #333;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .container h1 {
+            font-size: 2.5em;
+            margin: 20px 0;
+        }
+
+        .container p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+
+        .container button {
+            padding: 10px 20px;
+            font-size: 1.2em;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+            display: inline-block;
+        }
+
+        .container button:hover {
+            background-color: #555;
+        }
+
+        .container #message {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        .improvement {
+            color: #ff4c4c; /* Red color for "IMPROVEMENT NEEDED" */
+        }
+
+        .nice {
+            color: #f9a825; /* Yellow color for "NICE WORK" */
+        }
+
+        .excellent {
+            color: #4caf50; /* Green color for "EXCELLENT WORK" */
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: relative;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+    <link rel="stylesheet" href="styles.css">
+    <title>Results</title>
+</head>
+<body>
+    <header>
+        <h1>Results</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="game.html">Play Game</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="container">
+            <h1>Game Over</h1>
+            <p>Your total timing is: <span id="totalTiming">0</span> sec</p>
+            <p>Your score is: <span id="score">0</span></p>
+            <p>Your accuracy is: <span id="accuracy">0%</span></p>
+            <p id="message" class=""></p>
+            <button onclick="window.location.href='game.html'">Play Again</button>
+            <button onclick="window.location.href='index.html'">Go Home</button>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 Typing Tutor</p>
+    </footer>
+    <script>
+        function averageW(score, totalTiming) {
+            let accuracy = ((score * 100) / totalTiming) + 40;
+            accuracy = Math.min(accuracy, 100); // Ensure the accuracy does not exceed 100%
+            accuracy = accuracy.toFixed(2);
+            return accuracy;
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const finalScore = parseInt(localStorage.getItem('score'));
+            const totalTiming = parseInt(localStorage.getItem('totalTiming'));
+            const accuracy = averageW(finalScore, totalTiming);
+
+            document.getElementById('totalTiming').textContent = totalTiming;
+            document.getElementById('score').textContent = finalScore;
+            document.getElementById('accuracy').textContent = accuracy;
+
+            let message = '';
+            let messageClass = '';
+            if (finalScore < 5) {
+                message = 'IMPROVEMENT NEEDED';
+                messageClass = 'improvement';
+            } else if (finalScore <= 15) {
+                message = 'NICE WORK';
+                messageClass = 'nice';
+            } else {
+                message = 'EXCELLENT WORK';
+                messageClass = 'excellent';
+            }
+            document.getElementById('message').textContent = message;
+            document.getElementById('message').classList.add(messageClass);
+        });
+    </script>
+</body>
+</html>

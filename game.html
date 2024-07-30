@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
+        integrity="sha256-+N4/V/SbAFiW1MPBCXnfnP9QSN3+Keu+NlB+0ev/YKQ="
+        crossorigin="anonymous"
+    />
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #f06, #4a90e2);
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .settings-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #333;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .settings {
+            position: absolute;
+            top: 60px;
+            right: 20px;
+            background: #fff;
+            border: 1px solid #ddd;
+            padding: 10px;
+            display: none;
+        }
+
+        .settings-form label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .settings-form select {
+            width: 100%;
+            padding: 5px;
+            margin-bottom: 10px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .container h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .container h1 {
+            font-size: 2.5em;
+            margin: 20px 0;
+        }
+
+        .container input {
+            width: 80%;
+            padding: 10px;
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .time-container, .score-container, .accuracy-container, .totaltiming-container {
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+
+        .end-game-container {
+            display: none;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid #ddd;
+            color: #333;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            max-width: 500px;
+            margin: 50px auto;
+        }
+
+        .end-game-container h1 {
+            font-size: 2.0em;
+            margin-bottom: 20px;
+        }
+
+        .end-game-container p {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        .end-game-container button {
+            padding: 10px 20px;
+            font-size: 1.2em;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+            display: inline-block;
+        }
+
+        .end-game-container button:hover {
+            background-color: #555;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: relative;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+    <link rel="stylesheet" href="styles.css">
+    <title>Typing Tutor</title>
+</head>
+<body>
+    <header>
+        <h1>Play Game</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="game.html">Play Game</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <button id="settings-btn" class="settings-btn">
+            <i class="fas fa-cog"></i>
+        </button>
+
+        <div id="settings" class="settings">
+            <form id="settings-form">
+                <div>
+                    <label for="difficulty">Difficulty Level<br></label>
+                    <select id="difficulty">
+                        <option value="easy">Easy</option>
+                        <option value="medium">Medium</option>
+                        <option value="hard">Hard</option>
+                    </select>
+                </div>
+            </form>
+        </div>
+
+        <div class="container">
+            <h2>👩‍💻 Typing Mastery 👨‍💻</h2>
+            <small>Type the following Words:</small>
+
+            <h1 id="word"></h1>
+
+            <input
+                type="text"
+                id="text"
+                autocomplete="off"
+                placeholder="Type the word here..."
+                autofocus
+            />
+
+            <p class="time-container">Time left: <span id="time">10s</span></p>
+
+            <p class="score-container">Score: <span id="score">0</span></p>
+
+            <p class="accuracy-container">Accuracy: <span id="accuracy">0%</span></p>
+
+            <p class="totaltiming-container">Total Time: <span id="totaltiming">0</span></p>
+
+            <div id="end-game-container" class="end-game-container"></div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 Typing Tutor</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
